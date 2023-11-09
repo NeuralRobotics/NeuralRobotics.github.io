@@ -51,7 +51,9 @@ form.addEventListener("submit", function (event) {
 	})
     .then((response) => response.json()) // Parse the JSON response
     .then((data) => {
-        if (data.success === "email sent") {
+        console.log("Formspree Response:", data); // Log the entire Formspree response
+
+        if (data && data.success) {
             formFeedback.textContent = "Sending successful.";
             formFeedback.style.color = "green";
         } else {
