@@ -49,16 +49,28 @@ form.addEventListener("submit", function (event) {
 		method: "POST",
 		body: formData,
 	})
-	.then((data) => {
-		if (data === "success") {
-			formFeedback.textContent = "Sending successful.";
-			formFeedback.style.color = "green";
-		} else {
-			formFeedback.textContent = "Sending failed.";
-			formFeedback.style.color = "red";
-		}
-		formFeedback.style.display = "block";
-	});
-	
+    .then((response) => response.json()) // Parse the JSON response
+    .then((data) => {
+        if (data.success) {
+            formFeedback.textContent = "Sending successful.";
+            formFeedback.style.color = "green";
+        } else {
+            formFeedback.textContent = "Sending failed.";
+            formFeedback.style.color = "red";
+        }
+        formFeedback.style.display = "block";
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+        formFeedback.textContent = "An error occurred. Please try again later.";
+        formFeedback.style.color = "red";
+        formFeedback.style.display = "block";
+    });
 });
+
+
+
+
+
+
 
