@@ -53,13 +53,10 @@ form.addEventListener("submit", function (event) {
     .then((data) => {
         console.log("Formspree Response:", data); // Log the entire Formspree response
 
-        if (data && data.success) {
-            formFeedback.textContent = "Sending successful.";
-            formFeedback.style.color = "green";
-        } else {
-            formFeedback.textContent = "Sending failed.";
-            formFeedback.style.color = "red";
-        }
+        // Display the JSON response on the page
+        formFeedback.textContent = JSON.stringify(data, null, 2);
+        formFeedback.style.whiteSpace = "pre"; // Preserve line breaks and formatting
+        formFeedback.style.color = "black"; // You can change the text color
         formFeedback.style.display = "block";
     })
     .catch((error) => {
