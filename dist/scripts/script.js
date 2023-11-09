@@ -45,7 +45,7 @@ form.addEventListener("submit", function (event) {
 	const formData = new FormData(form);
 
 	// Use fetch to submit the form data to your PHP file
-	fetch("/private/php/contact.php", {
+	fetch("https://formspree.io/f/xdorjvpn", {
 		method: "POST",
 		body: formData,
 	})
