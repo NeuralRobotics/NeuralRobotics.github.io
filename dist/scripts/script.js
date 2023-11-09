@@ -61,7 +61,7 @@ form.addEventListener("submit", function (event) {
     })
     .catch((error) => {
         console.error("Error:", error);
-        formFeedback.textContent = "An error occurred. Please try again later.";
+        formFeedback.textContent = JSON.stringify(data, null, 2);
         formFeedback.style.color = "red";
         formFeedback.style.display = "block";
     });
