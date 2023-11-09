@@ -49,26 +49,17 @@ form.addEventListener("submit", function (event) {
 		method: "POST",
 		body: formData,
 	})
-    .then((response) => response.text()) // Parse the response as text
-    .then((data) => {
-        console.log("Formspree Response:", data); // Log the entire Formspree response as text
-
-        if (data.includes("uccess")) { // Check for a success message in the response
-            formFeedback.textContent = "Sending successful.";
-            formFeedback.style.color = "green";
-        } else {
-            formFeedback.textContent = "Sending failed: " + data; // Display the actual response
-            formFeedback.style.color = "red";
-        }
-        formFeedback.style.display = "block";
-    })
-    .catch((error) => {
-        console.error("Error:", error);
-        formFeedback.textContent = "An error occurred. Please try again later.";
-        formFeedback.style.color = "red";
-        formFeedback.style.display = "block";
-    });
-});
+	.then(() => {
+		formFeedback.textContent = "Sending Successful ✔";
+		formFeedback.style.color = "green";
+		formFeedback.style.display = "block";
+	})
+	.catch((error) => {
+		console.error("Error:", error);
+		formFeedback.textContent = "An error occurred. Please try again later.";
+		formFeedback.style.color = "red";
+		formFeedback.style.display = "block";
+	});
 
 
 
