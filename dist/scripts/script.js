@@ -49,16 +49,16 @@ form.addEventListener("submit", function (event) {
 		method: "POST",
 		body: formData,
 	})
-		.then((response) => response.text())
-		.then((data) => {
-			if (data === "success") {
-				formFeedback.textContent = "Sending successful.";
-				formFeedback.style.color = "green";
-			} else {
-				formFeedback.textContent = "Sending failed.";
-				formFeedback.style.color = "red";
-			}
-			formFeedback.style.display = "block";
-		});
+	.then((data) => {
+		if (data === "success") {
+			formFeedback.textContent = "Sending successful.";
+			formFeedback.style.color = "green";
+		} else {
+			formFeedback.textContent = "Sending failed.";
+			formFeedback.style.color = "red";
+		}
+		formFeedback.style.display = "block";
+	});
+	
 });
 
