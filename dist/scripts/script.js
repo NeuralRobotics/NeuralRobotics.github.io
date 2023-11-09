@@ -51,7 +51,7 @@ form.addEventListener("submit", function (event) {
 	})
     .then((response) => response.json()) // Parse the JSON response
     .then((data) => {
-        if (data.success) {
+        if (data.success === "email sent") {
             formFeedback.textContent = "Sending successful.";
             formFeedback.style.color = "green";
         } else {
@@ -67,6 +67,10 @@ form.addEventListener("submit", function (event) {
         formFeedback.style.display = "block";
     });
 });
+
+
+
+
 
 
 
