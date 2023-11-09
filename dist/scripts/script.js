@@ -49,17 +49,25 @@ form.addEventListener("submit", function (event) {
 		method: "POST",
 		body: formData,
 	})
-	.then(() => {
-		formFeedback.textContent = "Sending Successful ✔";
-		formFeedback.style.color = "green";
-		formFeedback.style.display = "block";
-	})
-	.catch((error) => {
-		console.error("Error:", error);
-		formFeedback.textContent = "An error occurred. Please try again later.";
-		formFeedback.style.color = "red";
-		formFeedback.style.display = "block";
-	});
+    .then((response) => response.text()) // Parse the response as text
+    .then((data) => {
+
+        if (data.includes("faild")) { // Check for a success message in the response
+            formFeedback.textContent = "Sending failed. Please directly email us at info@roneu.com: " + data;
+            formFeedback.style.color = "red";
+        } else {
+            formFeedback.textContent = "Sending successful."; // Display the actual response
+            formFeedback.style.color = "green";
+        }
+        formFeedback.style.display = "block";
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+        formFeedback.textContent = "An error occurred. Please try again later.";
+        formFeedback.style.color = "red";
+        formFeedback.style.display = "block";
+    });
+});
 
 
 
