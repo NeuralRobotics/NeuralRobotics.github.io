@@ -44,42 +44,29 @@ form.addEventListener("submit", function (event) {
 	event.preventDefault();
 	const formData = new FormData(form);
 
-	// Use fetch to submit the form data to your PHP file
-	fetch("https://formspree.io/f/xdorjvpn", {
-		method: "POST",
-		body: formData,
-	})
-  .then((response) => {
-    if (response.status === 200) {
-      return response.json();
-    } else {
-      throw new Error("Form submission failed with status: " + response.status);
-    }
-  })
-  .then((data) => {
-    if (data.success) {
-      formFeedback.textContent = "Sending successful.";
+	  // Use fetch to submit the form data to your PHP file
+    fetch("https://formspree.io/f/xdorjvpn", {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => response.text()) // Parse the response as text regardless of the status
+    .then((text) => {
+      if (text.includes("successfully")) {
+        formFeedback.textContent = "Sending successful.";
+        formFeedback.style.color = "green";
+      } else {
+        formFeedback.textContent = "Sending error: " + text;
+        formFeedback.style.color = "yellow";
+      }
+      formFeedback.style.display = "block";
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      formFeedback.textContent = "Submission successful.";
       formFeedback.style.color = "green";
-    } else if (data.error) {
-      formFeedback.textContent = "Please contact directly: info@aiembed.com";
-      formFeedback.style.color = "red";
-    } else {
-      formFeedback.textContent = "Sending seems to be successful.";
-      formFeedback.style.color = "yellow";
-    }
-    formFeedback.style.display = "block";
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-    formFeedback.textContent = "Form submission failed. Please try again later.";
-    formFeedback.style.color = "red";
-    formFeedback.style.display = "block";
+      formFeedback.style.display = "block";
+    });
   });
-
-
-
-
-
 
 
 
