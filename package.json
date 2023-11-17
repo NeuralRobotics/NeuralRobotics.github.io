@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@parcel/transformer-webmanifest": "^2.10.3"
+  }
+}
