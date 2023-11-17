@@ -1,6 +1,6 @@
 {
-    "name": "Locomotive Scroll",
-    "short_name": "Locomotive Scroll",
+    "name": "RONEU",
+    "short_name": RONEU",
     "icons": [
         {
             "src": "dist/images/favicons/android-chrome-144x144.png",
