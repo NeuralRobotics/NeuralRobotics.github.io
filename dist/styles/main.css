@@ -1,4 +1,4 @@
-{
+body{
     -webkit-text-size-adjust: 100%;
     line-height: 1.15
 }
@@ -1645,6 +1645,7 @@ html:not(.has-scroll-smooth) .c-fixed {
 }
 
 .c-direction-block_item {
+    color:black;
     font-size: 10vw;
     font-weight: 600;
     line-height: 1;
@@ -1654,7 +1655,7 @@ html:not(.has-scroll-smooth) .c-fixed {
 }
 
 .c-direction-block_item span {
-    background-color: ;
+    background-color: white;
     display: block;
     padding: 0 60px;
     white-space: nowrap
@@ -1668,12 +1669,12 @@ html:not(.has-scroll-smooth) .c-fixed {
 
 .c-direction-block_item.-two {
     top: 75%;
-    transform(-150vw): translateX(0vw) rotate(0deg)
+    transform: (-150vw) translateX(0vw) rotate(0deg)
 }
 
 .c-direction-block_item.-three {
     top: 80%;
-    transform(-5vw): rotate(90deg)
+    transform: (-5vw) rotate(90deg)
 }
 
 .c-direction-block_item.-four {
