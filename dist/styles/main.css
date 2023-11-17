@@ -1,5 +1,5 @@
 {
-
+    -webkit-text-size-adjust: 100%;
     line-height: 1.15
 }
 
@@ -2337,4 +2337,3 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
 }
-;
